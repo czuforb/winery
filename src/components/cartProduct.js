@@ -18,7 +18,7 @@ const CartProduct = ({ data, image }) => {
   }
 
   return (
-    <li className="w-full box-content p-2 bg-gray-100 rounded-md flex flex-col md:flex-row items-center justify-between my-2 shadow-sm">
+    <li className="w-full p-2 bg-gray-100 rounded-md flex flex-col md:flex-row items-center justify-between my-2 shadow-sm">
       <div className="flex justify-start w-full md:w-2/4">
         <GatsbyImage
           fluid={imgSrc(image, data.category)}

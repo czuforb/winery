@@ -42,7 +42,7 @@ const Cart = () => {
   return (
     <div
       id="cart"
-      className="w-full bg-green-400 my-4 flex flex-col items-start justify-center"
+      className="w-full my-4 flex flex-col items-start justify-center"
     >
       <ul className="mx-auto w-11/12 rounded-md flex flex-col items-center min-h-320 block">
         {cart.length > 0 ? (
