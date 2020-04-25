@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react"
+import React, { useContext } from "react"
 import { Formik, Form, Field } from "formik"
 import { CartContext } from "../context"
-import GoogleAddress from "./GoogleAddress"
+import MyTextInput from "../components/MyTextInput"
 
 const Checkout = () => {
   const { cart } = useContext(CartContext)
@@ -14,6 +14,8 @@ const Checkout = () => {
           phone: "06 30",
           email: "",
           address: "",
+          city: "",
+          google: "",
         }}
         onSubmit={(values, actions) => {
           setTimeout(() => {
@@ -22,8 +24,8 @@ const Checkout = () => {
           }, 1000)
         }}
       >
-        {() => (
-          <Form className="w-10/12 mx-auto p-4">
+        {({ values, handleChange, handleSubmit }) => (
+          <Form onSubmit={handleSubmit} className="w-10/12 mx-auto p-4">
             <h3 className="font-bold text-xl w-full block border-b border-gray-600">
               Rendelés leadása:
             </h3>
@@ -88,23 +90,34 @@ const Checkout = () => {
                 as="select"
               >
                 <option value="">Válasszon települést</option>
-                <option value="Mezőkövesd">Mezőkövesd</option>
-                <option value="Tard">Tard</option>
+                <option value="Mezőkövesd,">Mezőkövesd</option>
+                <option value="Tard,">Tard</option>
               </Field>
             </div>
             <div>
               <label
-                className="block text-gray-700 text-md font-semibold mb-1"
                 htmlFor="address"
+                className="block text-gray-700 text-md font-semibold mb-1"
               >
                 Cím:
-                <Field
-                  name="address"
-                  component={GoogleAddress}
-                  placeholder="Bence Bence"
-                />
               </label>
+              <Field
+                classStyle="text-md bg-gray-300 appearance-none rounded w-full py-2 px-3 text-gray-700 font-bold mb-1 leading-tight focus:outline-none focus:shadow-outline h-10"
+                name="address"
+                id="address"
+                component={MyTextInput}
+                prefix={values.city}
+              />
             </div>
+            {values.google !== "" ? (
+              <button disabled={values.google.coordinates ? false : true}>
+                <a
+                  href={`https://www.waze.com/ul?ll=${values.google.coordinates.lat}%2C-${values.google.coordinates.lng}&navigate=yes&zoom=17`}
+                >
+                  Kiszállítom
+                </a>
+              </button>
+            ) : null}
             <button
               type="submit"
               className="p-4 bg-green-800 text-green-100 font-bold rounded-md"
