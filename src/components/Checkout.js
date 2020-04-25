@@ -109,21 +109,24 @@ const Checkout = () => {
                 prefix={values.city}
               />
             </div>
-            {values.google !== "" ? (
-              <button disabled={values.google.coordinates ? false : true}>
-                <a
-                  href={`https://www.waze.com/ul?ll=${values.google.coordinates.lat}%2C-${values.google.coordinates.lng}&navigate=yes&zoom=17`}
-                >
-                  Kiszállítom
-                </a>
-              </button>
-            ) : null}
             <button
               type="submit"
               className="p-4 bg-green-800 text-green-100 font-bold rounded-md"
             >
               Megrendelem
             </button>
+            {values.google !== "" ? (
+              <button
+                className="bg-yellow-700 text-yellow-100 p-4 font-bold rounded-md mx-6"
+                disabled={values.google.coordinates ? false : true}
+              >
+                <a
+                  href={`https://www.waze.com/ul?ll=${values.google.coordinates.lat}%2C${values.google.coordinates.lng}&navigate=yes&zoom=17`}
+                >
+                  Kiszállítom
+                </a>
+              </button>
+            ) : null}
           </Form>
         )}
       </Formik>
