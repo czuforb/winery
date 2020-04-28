@@ -1,12 +1,25 @@
 import React, { useContext } from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import { CartContext } from "../context"
 import ProductItem from "./ProductItem"
+import BackgroundImage from "gatsby-background-image"
 
 const ProductList = () => {
   const {
     products: [products],
   } = useContext(CartContext)
+
+  const data = useStaticQuery(graphql`
+    query redWineQuery {
+      file(relativePath: { eq: "redwine.png" }) {
+        childImageSharp {
+          fluid(quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
 
   return (
     <section id="products" className="w-full bg-gray-300">
@@ -40,13 +53,20 @@ const ProductList = () => {
           </Link>
         </div>
         <div>
-          <article id="voros" className="w-full mx-auto flex flex-col my-12">
-            <div className="w-11/12 md:w-full mx-auto pb-1 border-b border-gray-400 mx-4">
+          <article id="voros" className="w-full mx-auto flex flex-col my-2">
+            <BackgroundImage
+              Tag="div"
+              className="block p-10 text-red-900"
+              style={{
+                borderRadius: 10,
+              }}
+              fluid={data.file.childImageSharp.fluid}
+            >
               <h3 className="text-3xl md:text-4xl font-bold inline-block">
                 Vörösborok
               </h3>
-            </div>
-            <div className="flex flex-wrap">
+            </BackgroundImage>
+            <div className="flex flex-wrap justify-around">
               {products
                 .filter(element => element.category === "Vörös")
                 .map(node => (

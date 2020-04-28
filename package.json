@@ -23,6 +23,7 @@
     "google-map-react": "^1.1.7",
     "google-maps": "^4.2.3",
     "mailgun-js": "^0.22.0",
+    "mailgun.js": "^2.0.1",
     "node-barion": "^2.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

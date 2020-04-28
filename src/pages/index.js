@@ -11,7 +11,7 @@ import Order from "../components/Order"
 const Index = () => (
   <CartContext>
     <Layout>
-      <Portal />
+      {/* <Portal /> */}
       <Hero />
       <ProductList />
       <Order />

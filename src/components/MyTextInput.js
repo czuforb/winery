@@ -1,4 +1,3 @@
-/* global google*/
 import React, { useState, useEffect } from "react"
 import PlacesAutocomplete, {
   geocodeByAddress,
@@ -44,7 +43,7 @@ const MyTextInput = ({
       .then(results => getLatLng(results[0]))
       .then(latLng => {
         setAddress(() => {
-          setFieldValue("google", {
+          setFieldValue("address", {
             value: address,
             coordinates: latLng,
           })

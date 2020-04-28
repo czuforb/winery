@@ -4,28 +4,28 @@ const CartQuantityHandler = ({ id, price }) => {
   const { cart, handleIncrease, handleDecrease, handleRemove } = useContext(
     CartContext
   )
-  const showQuantity = cart => {
-    if (cart.length < 1) {
-      return 0
-    } else {
-      if (cart.find(item => item.id === id)) {
-        const tempProduct = cart.find(item => item.id === id)
-        return tempProduct.quantity
-      } else {
-        return 0
-      }
-    }
-  }
 
   const [quantity, setQuantity] = useState(0)
 
   useEffect(() => {
+    const showQuantity = cart => {
+      if (cart.length < 1) {
+        return 0
+      } else {
+        if (cart.find(item => item.id === id)) {
+          const tempProduct = cart.find(item => item.id === id)
+          return tempProduct.quantity
+        } else {
+          return 0
+        }
+      }
+    }
     setQuantity(showQuantity(cart))
     const currentProduct = cart.find(item => item.id === id)
     if (currentProduct.quantity === 0) {
       handleRemove(id)
     }
-  }, [cart, handleRemove, id, showQuantity])
+  }, [cart, handleRemove, id])
   return (
     <div className="flex w-full items-end md:w-2/4 mt-1">
       <div class="h-12 w-1/2">

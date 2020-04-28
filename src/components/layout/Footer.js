@@ -14,7 +14,7 @@ const Footer = () => {
               <Link to="/aszf" className="text-lg  hover:text-green-200 ">
                 Általános szerződési feltételek
               </Link>
-              <Link className="text-lg  hover:text-green-200 ">
+              <Link to="/" className="text-lg  hover:text-green-200 ">
                 Szállítás és fizetés
               </Link>
             </ul>
@@ -25,13 +25,13 @@ const Footer = () => {
                 Boraink
               </h3>
               <ul className="flex flex-col">
-                <Link className="text-lg  hover:text-green-200 ">
+                <Link to="/" className="text-lg  hover:text-green-200 ">
                   Vörösborok
                 </Link>
-                <Link className="text-lg  hover:text-green-200 ">
+                <Link to="/" className="text-lg  hover:text-green-200 ">
                   Fehérborok
                 </Link>
-                <Link className="text-lg  hover:text-green-200 ">
+                <Link to="/" className="text-lg  hover:text-green-200 ">
                   Rozéborok
                 </Link>
               </ul>

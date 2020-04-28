@@ -10,18 +10,18 @@ const Checkout = () => {
     <div className="w-full  my-4 flex flex-col items-start justify-center">
       <Formik
         initialValues={{
-          name: "",
-          phone: "06 30",
-          email: "",
+          name: "Bence Czufor",
+          phone: "06 30 5537883",
+          email: "hi@bence.cz",
+          city: "Mezőkövesd",
           address: "",
-          city: "",
-          google: "",
         }}
         onSubmit={(values, actions) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2))
-            actions.setSubmitting(false)
-          }, 1000)
+          fetch("/api/sendorder", {
+            method: "post",
+            body: JSON.stringify({ cart, values }),
+          })
+          console.log({ cart, values })
         }}
       >
         {({ values, handleChange, handleSubmit }) => (
@@ -115,13 +115,13 @@ const Checkout = () => {
             >
               Megrendelem
             </button>
-            {values.google !== "" ? (
+            {values.address !== "" ? (
               <button
                 className="bg-yellow-700 text-yellow-100 p-4 font-bold rounded-md mx-6"
-                disabled={values.google.coordinates ? false : true}
+                disabled={values.address.coordinates ? false : true}
               >
                 <a
-                  href={`https://www.waze.com/ul?ll=${values.google.coordinates.lat}%2C${values.google.coordinates.lng}&navigate=yes&zoom=17`}
+                  href={`https://www.waze.com/ul?ll=${values.address.coordinates.lat}%2C${values.address.coordinates.lng}&navigate=yes&zoom=17`}
                 >
                   Kiszállítom
                 </a>

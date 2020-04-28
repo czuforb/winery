@@ -22,8 +22,8 @@ const Navigation = () => {
               y1="22.3962"
               x2="90.3962"
               y2="10.4982"
-              stroke-width="15"
-              stroke-linecap="round"
+              strokeWidth="15"
+              strokeLinecap="round"
             />
           </svg>
         </Link>

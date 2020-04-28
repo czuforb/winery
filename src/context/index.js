@@ -53,9 +53,7 @@ export default ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, { cart: [] })
   const [products, setProducts] = useState(inventory)
 
-  useEffect(() => {
-    console.log(state)
-  }, [state, products])
+  useEffect(() => {}, [state, products])
 
   const handleAddCart = action => {
     dispatch(action)
@@ -69,7 +67,6 @@ export default ({ children }) => {
   }
   const handleRemove = id => {
     dispatch({ type: "REMOVE", id: id })
-    console.log("geci")
   }
   const store = {
     cart: state.cart,
