@@ -11,54 +11,6 @@ import poster_image from "../../redwine.png"
 import { Video } from "gatsby-video"
 import { useStaticQuery, Link } from "gatsby"
 const Index = () => {
-  const data = useStaticQuery(graphql`
-    {
-      file(relativePath: { eq: "video.mp4" }) {
-        childVideoFfmpeg {
-          webm: transcode(
-            outputOptions: [
-              "-crf 0"
-              "-preset veryslow"
-              "-movflags +faststart"
-              "-b:v 2M"
-              "-filter:v minterpolate='mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=120'"
-            ]
-            maxWidth: 900
-            maxHeight: 480
-            fileExtension: "webm"
-            codec: "libvpx-vp9"
-          ) {
-            width
-            src
-            presentationMaxWidth
-            presentationMaxHeight
-            originalName
-            height
-            fileExtension
-            aspectRatio
-          }
-          mp4: transcode(
-            maxWidth: 900
-            maxHeight: 480
-            fileExtension: "mp4"
-            codec: "libx264"
-          ) {
-            width
-            src
-            presentationMaxWidth
-            presentationMaxHeight
-            originalName
-            height
-            fileExtension
-            aspectRatio
-          }
-        }
-      }
-    }
-  `)
-  const videos = data.file.childVideoFfmpeg
-
-  console.log(videos)
   return (
     <CartContext>
       <Layout>
@@ -80,9 +32,14 @@ const Index = () => {
               </Link>
             </div>
           </div>
-          <Video autoPlay muted loop sources={[videos.mp4, videos.webm]} />
+          <video autoPlay muted>
+            <source
+              src="https://res.cloudinary.com/buforcz/video/upload/v1588624152/video_yqtm92.mp4"
+              type="video/mp4"
+            />
+          </video>
         </div>
-        <Hero />
+        {/* <Hero /> */}
         <ProductList />
         <Order />
       </Layout>

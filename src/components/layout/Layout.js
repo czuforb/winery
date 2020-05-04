@@ -9,14 +9,11 @@ const Layout = ({ children }) => {
 
   return (
     <CookiesProvider>
-      <div>
-        <Nav />
-        {/* {cookies.consents ? "" :  */}
-        <Portal />
-
-        <main>{children}</main>
-        <Footer />
-      </div>
+      <Nav />
+      {/* {cookies.consents ? "" :  */}
+      <Portal />
+      <main>{children}</main>
+      <Footer />
     </CookiesProvider>
   )
 }
