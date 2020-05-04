@@ -7,7 +7,8 @@ const Checkout = () => {
   const { cart } = useContext(CartContext)
 
   return (
-    <div className="w-full  my-4 flex flex-col items-start justify-center">
+    <div className="flex flex-col w-full my-8 justify-evenly">
+      <h2>RENDELÉS</h2>
       <Formik
         initialValues={{
           name: "Bence Czufor",
@@ -25,19 +26,19 @@ const Checkout = () => {
         }}
       >
         {({ values, handleChange, handleSubmit }) => (
-          <Form onSubmit={handleSubmit} className="w-10/12 mx-auto p-4">
-            <h3 className="font-bold text-xl w-full block border-b border-gray-600">
-              Rendelés leadása:
-            </h3>
-            <div className="w-full border-b-1 my-1">
+          <Form
+            onSubmit={handleSubmit}
+            className="container h-full p-4 mx-auto"
+          >
+            <div className="w-full my-1 border-b-1">
               <label
                 htmlFor="name"
-                className="block text-gray-700 text-md font-semibold mb-1"
+                className="block mb-1 font-semibold text-gray-700 text-md"
               >
                 Név:
               </label>
               <Field
-                className="text-md bg-gray-300 appearance-none rounded w-full py-2 px-2 text-gray-700 font-bold mb-1 leading-tight focus:shadow-outline h-10"
+                className="w-full h-10 px-2 py-2 mb-1 font-bold leading-tight text-gray-700 bg-gray-300 rounded appearance-none text-md focus:shadow-outline"
                 id="name"
                 type="text"
                 name="name"
@@ -45,30 +46,30 @@ const Checkout = () => {
               />
             </div>
             <div className="flex">
-              <div className="w-1/2 border-b-1 border-gray-200 my-1 mr-2">
+              <div className="w-1/2 my-1 mr-2 border-gray-200 border-b-1">
                 <label
                   htmlFor="phone"
-                  className="block text-gray-700 text-md font-semibold mb-1 "
+                  className="block mb-1 font-semibold text-gray-700 text-md "
                 >
                   Telefon
                 </label>
                 <Field
-                  className="text-md bg-gray-300 appearance-none rounded w-full py-2 px-3 text-gray-700 font-bold mb-1 leading-tight focus:outline-none focus:shadow-outline h-10"
+                  className="w-full h-10 px-3 py-2 mb-1 font-bold leading-tight text-gray-700 bg-gray-300 rounded appearance-none text-md focus:outline-none focus:shadow-outline"
                   id="phone"
                   type="text"
                   name="phone"
                   placeholder="06 30 123 4567"
                 />
               </div>
-              <div className="w-1/2 border-b-1 border-gray-200 my-1">
+              <div className="w-1/2 my-1 border-gray-200 border-b-1">
                 <label
                   htmlFor="email"
-                  className="block text-gray-700 text-md font-semibold mb-1"
+                  className="block mb-1 font-semibold text-gray-700 text-md"
                 >
                   Email
                 </label>
                 <Field
-                  className="text-md bg-gray-300 appearance-none rounded w-full py-2 px-3 text-gray-700 font-bold mb-1 leading-tight focus:outline-none focus:shadow-outline h-10"
+                  className="w-full h-10 px-3 py-2 mb-1 font-bold leading-tight text-gray-700 bg-gray-300 rounded appearance-none text-md focus:outline-none focus:shadow-outline"
                   id="email"
                   type="text"
                   name="email"
@@ -76,15 +77,15 @@ const Checkout = () => {
                 />
               </div>
             </div>
-            <div className="w-full border-b-1 border-gray-200 my-1">
+            <div className="w-full my-1 border-gray-200 border-b-1">
               <label
                 htmlFor="city"
-                className="block text-gray-700 text-md font-semibold mb-1"
+                className="block mb-1 font-semibold text-gray-700 text-md"
               >
                 Település:
               </label>
               <Field
-                className="text-md bg-gray-300 appearance-none rounded w-full py-2 px-3 text-gray-700 font-bold mb-1 leading-tight focus:outline-none focus:shadow-outline h-10"
+                className="w-full h-10 px-3 py-2 mb-1 font-bold leading-tight text-gray-700 bg-gray-300 rounded text-md focus:outline-none focus:shadow-outline"
                 id="city"
                 name="city"
                 as="select"
@@ -94,10 +95,10 @@ const Checkout = () => {
                 <option value="Tard,">Tard</option>
               </Field>
             </div>
-            <div>
+            <div className="mb-8">
               <label
                 htmlFor="address"
-                className="block text-gray-700 text-md font-semibold mb-1"
+                className="block mb-1 font-semibold text-gray-700 text-md"
               >
                 Cím:
               </label>
@@ -111,13 +112,26 @@ const Checkout = () => {
             </div>
             <button
               type="submit"
-              className="p-4 bg-green-800 text-green-100 font-bold rounded-md"
+              className="w-full px-4 py-2 mx-auto text-xl font-bold text-green-100 bg-green-900 rounded"
             >
               Megrendelem
             </button>
-            {values.address !== "" ? (
+          </Form>
+        )}
+      </Formik>
+    </div>
+  )
+}
+
+export default Checkout
+
+/*
+
+WAZE STUFF
+
+    {values.address !== "" ? (
               <button
-                className="bg-yellow-700 text-yellow-100 p-4 font-bold rounded-md mx-6"
+                className="p-4 mx-6 font-bold text-yellow-100 bg-yellow-700 rounded-md"
                 disabled={values.address.coordinates ? false : true}
               >
                 <a
@@ -127,11 +141,7 @@ const Checkout = () => {
                 </a>
               </button>
             ) : null}
-          </Form>
-        )}
-      </Formik>
-    </div>
-  )
-}
 
-export default Checkout
+
+
+*/

@@ -3,11 +3,11 @@ import { Link } from "gatsby"
 import CartIndicator from "../cartIndicator"
 const Navigation = () => {
   return (
-    <nav className="w-full bg-green-800 fixed top-0 z-10 shadow-sm">
-      <div className="w-full px-4 md:max-w-screen-xl mx-auto flex justify-end items-center">
-        <Link to="/" className="mr-auto text-4xl font-bold text-green-100">
+    <nav className="fixed top-0 z-40 w-full">
+      <div className="container flex items-center justify-end px-4 mx-auto">
+        <Link to="/" className="mr-auto text-4xl font-bold text-white">
           <svg
-            className="w-12 h-12 fill-current stroke-current text-green-100"
+            className="w-12 h-12 text-white fill-current stroke-current"
             viewBox="0 0 150 165"
             xmlns="http://www.w3.org/2000/svg"
           >

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import ReactDOM from "react-dom"
+import { useCookies } from "react-cookie"
 
 const portalRoot =
   typeof document !== `undefined` ? document.getElementById("age-modal") : null
@@ -9,7 +10,13 @@ const Portal = ({ children }) => {
     typeof document !== `undefined` ? document.createElement("div") : null
 
   const [age, setAge] = useState(false)
-
+  const [cookies, setCookie] = useCookies([])
+  const changeCookie = () => {
+    setCookie("consents", true, { path: "/" })
+    setCookie("age", true, { path: "/" })
+    setCookie("gdpr", "true", { path: "/" })
+    setAge(!age)
+  }
   useEffect(() => {
     portalRoot.appendChild(element)
     return () => {
@@ -18,19 +25,18 @@ const Portal = ({ children }) => {
   }, [element])
 
   const content = !age && (
-    <div className="z-10 fixed inset-0 bg-backdrop flex justify-center items-center overflow-hidden">
-      <div className="bg-green-100 py-4 px-6 flex flex-col items-center rounded shadow-xl">
-        <h2 className="text-2xl font-bold my-2">
-          Webáruházunk 18 éven felülieknek szóló termékeket árul.
-        </h2>
-        <p className="text-xl my-1">
-          A gombra való kattintással beleegyezik, hogy elmúlt már 18 éves.
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-hidden bg-backdrop">
+      <div className="container flex flex-col items-center px-6 py-4 bg-green-100 border-t-4 border-red-700 rounded shadow-xl">
+        <h2 className="my-2 text-2xl font-bold">Figyike!</h2>
+        <p className="my-1 text-xl font-semibold text-gray-700">
+          A gombra való kattintással beleegyezek az oldal adatvédelmi
+          feltételeibe, és kijelentem, hogy már elmúltam 18 éves.
         </p>
         <button
-          onClick={() => setAge(!age)}
-          className="px-4 py-2 text-2xl font-bold bg-green-800 text-green-100 rounded my-6"
+          onClick={() => changeCookie()}
+          className="px-4 py-2 my-6 text-2xl font-bold text-green-100 bg-green-800 rounded"
         >
-          Elmúltam 18 éves.
+          Eskü kajak hajjakmeg!
         </button>
       </div>
     </div>

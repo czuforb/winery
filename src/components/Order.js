@@ -4,7 +4,7 @@ import Checkout from "./Checkout"
 const Order = () => {
   return (
     <section className="w-full bg-gray-400">
-      <div className="w-10/12 max-w-screen-xl flex flex-col md:flex-row rounded-md py-6 mx-auto">
+      <div className="container flex flex-col mx-auto lg:flex-row">
         <Cart />
         <Checkout />
       </div>

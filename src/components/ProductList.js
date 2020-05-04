@@ -23,50 +23,48 @@ const ProductList = () => {
 
   return (
     <section id="products" className="w-full bg-gray-300">
-      <div className="w-full md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl flex flex-col items-center mx-auto py-24">
-        <h2 className="text-4xl font-bold my-4">Kínálatunk</h2>
-        <p className="text-center p-4">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum
-          nulla dolor ducimus cum cupiditate unde minus.
-        </p>
-        <div className="flex flex-wrap justify-around">
-          <Link
-            to="/#voros"
-            className="px-2 py-1 m-2 bg-gray-100 shadow-sm rounded-md text-red-900 items-baseline text-lg font-bold hover:bg-gray-200"
-          >
-            <span className="inline-block p-2 bg-red-800 rounded-full mx-1"></span>
-            Vörösborok
-          </Link>
-          <Link
-            to="/#feher"
-            className="px-2 py-1 m-2 bg-gray-100 shadow-sm rounded-md text-yellow-900 items-baseline text-lg font-bold hover:bg-gray-200"
-          >
-            <span className="inline-block p-2 bg-yellow-400 rounded-full mx-1"></span>
-            Fehérborok
-          </Link>
-          <Link
-            to="/#roze"
-            className="px-2 py-1 m-2 bg-gray-100 shadow-sm rounded-md text-red-700 items-baseline text-lg font-bold hover:bg-gray-200"
-          >
-            <span className="inline-block p-2 bg-red-300 rounded-full mx-1"></span>
-            Rozéborok
-          </Link>
-        </div>
-        <div>
-          <article id="voros" className="w-full mx-auto flex flex-col my-2">
-            <BackgroundImage
-              Tag="div"
-              className="block p-10 text-red-900"
-              style={{
-                borderRadius: 10,
-              }}
-              fluid={data.file.childImageSharp.fluid}
+      <div className="container flex flex-col px-4 mx-auto">
+        <div className="flex flex-col flex-wrap items-center py-24 mx-auto">
+          <h2 className="my-4 text-4xl font-bold">Kínálatunk</h2>
+          <p className="p-4 text-center">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum
+            nulla dolor ducimus cum cupiditate unde minus.
+          </p>
+          <div className="flex flex-wrap justify-around">
+            <Link
+              to="/#voros"
+              className="items-baseline px-2 py-1 m-2 text-lg font-bold text-red-900 bg-gray-100 rounded-md shadow-sm hover:bg-gray-200"
             >
-              <h3 className="text-3xl md:text-4xl font-bold inline-block">
+              <span className="inline-block p-2 mx-1 bg-red-800 rounded-full"></span>
+              Vörösborok
+            </Link>
+            <Link
+              to="/#feher"
+              className="items-baseline px-2 py-1 m-2 text-lg font-bold text-yellow-900 bg-gray-100 rounded-md shadow-sm hover:bg-gray-200"
+            >
+              <span className="inline-block p-2 mx-1 bg-yellow-400 rounded-full"></span>
+              Fehérborok
+            </Link>
+            <Link
+              to="/#roze"
+              className="items-baseline px-2 py-1 m-2 text-lg font-bold text-red-700 bg-gray-100 rounded-md shadow-sm hover:bg-gray-200"
+            >
+              <span className="inline-block p-2 mx-1 bg-red-300 rounded-full"></span>
+              Rozéborok
+            </Link>
+          </div>
+        </div>
+
+        {/* THE PRODUCT LIST STARTS HERE */}
+
+        <div>
+          <article id="voros" className="flex flex-col w-full mx-auto my-8">
+            <div className="w-full pb-1 mx-auto mb-6 text-gray-800 border-b border-gray-400">
+              <h3 className="inline-block text-3xl font-bold md:text-4xl">
                 Vörösborok
               </h3>
-            </BackgroundImage>
-            <div className="flex flex-wrap justify-around">
+            </div>
+            <div className="grid w-full grid-cols-1 gap-2 sm:gap-3 sm:grid-cols-2 md:gap-4 md:grid-cols-3 lg:grid-cols-4">
               {products
                 .filter(element => element.category === "Vörös")
                 .map(node => (
@@ -74,13 +72,17 @@ const ProductList = () => {
                 ))}
             </div>
           </article>
-          <article id="feher" className="w-full mx-auto flex flex-col my-12">
-            <div className="w-10/12 md:w-full mx-auto pb-1 border-b border-gray-400 mx-4">
-              <h3 className="text-3xl md:text-4xl font-bold inline-block">
+          {/* WHITE WINE */}
+          <article
+            id="voros"
+            className="flex flex-col w-full row-auto mx-auto my-8"
+          >
+            <div className="pb-1 mx-auto mb-6 text-gray-800 border-b border-gray-400 md:w-full">
+              <h3 className="inline-block text-3xl font-bold md:text-4xl">
                 Fehérborok
               </h3>
             </div>
-            <div className="flex flex-wrap">
+            <div className="grid w-full grid-cols-1 gap-2 sm:gap-3 sm:grid-cols-2 md:gap-4 md:grid-cols-3 lg:grid-cols-4">
               {products
                 .filter(element => element.category === "Fehér")
                 .map(node => (
@@ -88,13 +90,14 @@ const ProductList = () => {
                 ))}
             </div>
           </article>
-          <article id="roze" className="w-full mx-auto flex flex-col my-12">
-            <div className="w-10/12 md:w-full mx-auto pb-1 border-b border-gray-400 mx-4">
-              <h3 className="text-3xl md:text-4xl font-bold inline-block">
+          {/* ROSE WINES */}
+          <article id="voros" className="flex flex-col w-full mx-auto my-8">
+            <div className="pb-1 mx-auto mb-6 text-gray-800 border-b border-gray-400 md:w-full">
+              <h3 className="inline-block text-3xl font-bold md:text-4xl">
                 Rozéborok
               </h3>
             </div>
-            <div className="flex flex-wrap">
+            <div className="grid w-full grid-cols-1 gap-2 sm:gap-3 sm:grid-cols-2 md:gap-4 md:grid-cols-3 lg:grid-cols-4">
               {products
                 .filter(element => element.category === "Rozé")
                 .map(node => (
