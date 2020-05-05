@@ -18,10 +18,10 @@ const CartIndicator = () => {
   return (
     <Link
       to={cart.length ? "/#cart" : "/#products"}
-      className="relative z-40 flex items-center justify-center w-16 h-16 bg-green-900 rounded-full"
+      className="relative z-40 flex items-center justify-center w-10 h-10 bg-green-900 rounded-full"
     >
       <svg
-        className="z-20 w-10 h-10 text-green-100 fill-current"
+        className="z-20 w-8 h-8 text-green-100 fill-current"
         viewBox="0 0 20 20"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

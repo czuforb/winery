@@ -10,9 +10,8 @@ const Layout = ({ children }) => {
   return (
     <CookiesProvider>
       <Nav />
-      {/* {cookies.consents ? "" :  */}
-      <Portal />
-      <main>{children}</main>
+      {cookies.consents ? "" : <Portal />}
+      <main className="antialiased font-body">{children}</main>
       <Footer />
     </CookiesProvider>
   )

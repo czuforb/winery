@@ -22,32 +22,32 @@ const ProductList = () => {
   `)
 
   return (
-    <section id="products" className="w-full bg-gray-300">
+    <section id="products" className="w-full">
       <div className="container flex flex-col px-4 mx-auto">
         <div className="flex flex-col flex-wrap items-center py-24 mx-auto">
-          <h2 className="my-4 text-4xl font-bold">Kínálatunk</h2>
-          <p className="p-4 text-center">
+          <h2 className="my-4 text-6xl font-bold font-display">Kínálatunk</h2>
+          <p className="p-4 text-xl text-center">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum
             nulla dolor ducimus cum cupiditate unde minus.
           </p>
           <div className="flex flex-wrap justify-around">
             <Link
               to="/#voros"
-              className="items-baseline px-2 py-1 m-2 text-lg font-bold text-red-900 bg-gray-100 rounded-md shadow-sm hover:bg-gray-200"
+              className="items-baseline px-2 py-1 m-2 text-lg font-bold text-red-900 bg-gray-100 rounded-md shadow-sm hover:bg-green-900"
             >
               <span className="inline-block p-2 mx-1 bg-red-800 rounded-full"></span>
               Vörösborok
             </Link>
             <Link
               to="/#feher"
-              className="items-baseline px-2 py-1 m-2 text-lg font-bold text-yellow-900 bg-gray-100 rounded-md shadow-sm hover:bg-gray-200"
+              className="items-baseline px-2 py-1 m-2 text-lg font-bold text-yellow-900 bg-gray-100 rounded-md shadow-sm hover:bg-green-900"
             >
               <span className="inline-block p-2 mx-1 bg-yellow-400 rounded-full"></span>
               Fehérborok
             </Link>
             <Link
               to="/#roze"
-              className="items-baseline px-2 py-1 m-2 text-lg font-bold text-red-700 bg-gray-100 rounded-md shadow-sm hover:bg-gray-200"
+              className="items-baseline px-2 py-1 m-2 text-lg font-bold text-red-700 bg-gray-100 rounded-md shadow-sm hover:bg-green-900"
             >
               <span className="inline-block p-2 mx-1 bg-red-300 rounded-full"></span>
               Rozéborok
@@ -60,7 +60,7 @@ const ProductList = () => {
         <div>
           <article id="voros" className="flex flex-col w-full mx-auto my-8">
             <div className="w-full pb-1 mx-auto mb-6 text-gray-800 border-b border-gray-400">
-              <h3 className="inline-block text-3xl font-bold md:text-4xl">
+              <h3 className="inline-block text-3xl font-bold font-display md:text-4xl">
                 Vörösborok
               </h3>
             </div>

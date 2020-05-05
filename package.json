@@ -20,6 +20,7 @@
     "gatsby-plugin-react-helmet": "^3.2.4",
     "gatsby-plugin-sharp": "^2.5.6",
     "gatsby-source-filesystem": "^2.2.4",
+    "gatsby-source-googlemaps-static": "^1.1.1",
     "gatsby-transformer-ffmpeg": "^0.3.8",
     "gatsby-transformer-sharp": "^2.4.6",
     "gatsby-video": "^0.2.0",

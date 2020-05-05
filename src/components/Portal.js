@@ -27,7 +27,7 @@ const Portal = ({ children }) => {
   const content = !age && (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-hidden bg-backdrop">
       <div className="container flex flex-col items-center px-6 py-4 bg-green-100 border-t-4 border-red-700 rounded shadow-xl">
-        <h2 className="my-2 text-2xl font-bold">Figyike!</h2>
+        <h2 className="my-2 text-2xl font-bold">Kedves Vendégünk!</h2>
         <p className="my-1 text-xl font-semibold text-gray-700">
           A gombra való kattintással beleegyezek az oldal adatvédelmi
           feltételeibe, és kijelentem, hogy már elmúltam 18 éves.
@@ -36,7 +36,7 @@ const Portal = ({ children }) => {
           onClick={() => changeCookie()}
           className="px-4 py-2 my-6 text-2xl font-bold text-green-100 bg-green-800 rounded"
         >
-          Eskü kajak hajjakmeg!
+          Igen!
         </button>
       </div>
     </div>

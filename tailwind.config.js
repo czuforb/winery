@@ -12,6 +12,10 @@ module.exports = {
       backgroundColor: {
         backdrop: "hsla(120,100%,25%,0.6)",
       },
+      fontFamily: {
+        display: ["Amiri"],
+        body: ["Lato"],
+      },
     },
   },
   variants: {

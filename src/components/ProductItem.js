@@ -39,22 +39,21 @@ const ProductItem = ({ node }) => {
   }
 
   return (
-    <div className="relative col-span-1 overflow-hidden bg-gray-500 rounded shadow-lg">
+    <div className="relative col-span-1 py-4 overflow-hidden rounded hover:shadow-xl">
       <div className="relative flex items-center justify-center">
         <Img className="relative w-full" fluid={imageUrl(image, node.image)} />
       </div>
-      <div className="flex flex-col items-center justify-center w-full p-6">
-        <h2 className="text-2xl font-bold text-gray-900">{node.name}</h2>
-        <h3 className="text-base text-gray-800 uppercase">
-          {node.type} &bull; {node.category}
-        </h3>
-        <div className="flex flex-col items-center w-full my-1">
+      <div className="flex flex-col items-center justify-center w-full p-6 group">
+        <h2 className="text-2xl font-extrabold text-gray-900 font-display">
+          {node.name} 2019
+        </h2>
+        {/* <div className="flex flex-col items-center w-full my-1">
           <p className="absolute top-0 right-0 p-2 m-2 text-base font-bold text-gray-900 bg-gray-200">
             {node.price}Ft/ {node.amount}l
           </p>
-        </div>
+        </div> */}
         <button
-          className="px-4 py-2 mx-auto text-xl font-bold text-green-100 bg-green-900 rounded"
+          className="hidden px-4 py-2 mx-auto text-xl font-bold text-green-100 bg-green-900 rounded group-hover:block group-hover:bg-green-700"
           onClick={() => handleAddCart(action)}
         >
           Kosárba rakom
