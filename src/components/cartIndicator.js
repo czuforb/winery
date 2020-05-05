@@ -18,10 +18,10 @@ const CartIndicator = () => {
   return (
     <Link
       to={cart.length ? "/#cart" : "/#products"}
-      className="relative w-20 h-20 z-50 flex justify-center items-center"
+      className="relative z-40 flex items-center justify-center w-16 h-16 bg-green-900 rounded-full"
     >
       <svg
-        className="fill-current text-gray-100 w-10 h-10 z-20"
+        className="z-20 w-10 h-10 text-green-100 fill-current"
         viewBox="0 0 20 20"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ const CartIndicator = () => {
         <path d="M6.5 18C7.32843 18 8 17.3284 8 16.5C8 15.6716 7.32843 15 6.5 15C5.67157 15 5 15.6716 5 16.5C5 17.3284 5.67157 18 6.5 18Z" />
       </svg>
       {quantity > 0 ? (
-        <span className="z-10 absolute px-2 py-1 box-border -mt-8 -mr-12 bg-green-200 text-md font-bold text-green-900 rounded-full">
+        <span className="box-border absolute z-10 z-50 px-3 py-1 -mt-8 -mr-12 font-bold text-green-900 bg-green-500 rounded-full text-md">
           {quantity}
         </span>
       ) : null}

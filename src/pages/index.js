@@ -7,9 +7,8 @@ import Layout from "../components/layout/Layout"
 import Hero from "../components/Hero"
 import ProductList from "../components/ProductList"
 import Order from "../components/Order"
-import poster_image from "../../redwine.png"
-import { Video } from "gatsby-video"
-import { useStaticQuery, Link } from "gatsby"
+
+import { Link } from "gatsby"
 const Index = () => {
   return (
     <CartContext>
@@ -32,7 +31,12 @@ const Index = () => {
               </Link>
             </div>
           </div>
-          <video autoPlay muted>
+          <video
+            autoPlay
+            muted
+            loop
+            className="object-cover w-full h-screen overflow-hidden"
+          >
             <source
               src="https://res.cloudinary.com/buforcz/video/upload/v1588624152/video_yqtm92.mp4"
               type="video/mp4"

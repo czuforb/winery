@@ -27,23 +27,23 @@ const CartQuantityHandler = ({ id, price }) => {
     }
   }, [cart, handleRemove, id])
   return (
-    <div className="flex w-full items-end md:w-2/4 mt-1">
-      <div class="h-12 w-1/2">
-        <div class="flex flex-row h-10 w-42 rounded-lg relative bg-transparent mt-1">
+    <div className="flex items-end w-full mt-1 md:w-2/4">
+      <div className="w-1/2 h-12">
+        <div className="relative flex flex-row h-10 mt-1 bg-transparent rounded-lg w-42">
           <button
             onClick={() => handleDecrease(id)}
-            class=" bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-10 rounded-l cursor-pointer outline-none"
+            className="w-10 h-full text-gray-600 bg-gray-300 rounded-l outline-none cursor-pointer  hover:text-gray-700 hover:bg-gray-400"
           >
-            <span class="m-auto text-2xl font-bold">−</span>
+            <span className="m-auto text-2xl font-bold">−</span>
           </button>
-          <span className="px-4 py-2 bg-gray-300 font-bold w-12">
+          <span className="w-12 px-4 py-2 font-bold bg-gray-300">
             {quantity}
           </span>
           <button
             onClick={() => handleIncrease(id)}
-            class="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-10 rounded-r cursor-pointer"
+            className="w-10 h-full text-gray-600 bg-gray-300 rounded-r cursor-pointer hover:text-gray-700 hover:bg-gray-400"
           >
-            <span class="m-auto text-2xl font-bold">+</span>
+            <span className="m-auto text-2xl font-bold">+</span>
           </button>
         </div>
       </div>

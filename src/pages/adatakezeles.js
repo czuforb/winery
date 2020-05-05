@@ -5,7 +5,9 @@ const adatakezeles = () => {
   return (
     <Layout>
       <div className="w-full p-4 bg-gray-100">
-        <article className="container mx-auto"></article>
+        <section className="container mx-auto">
+          <h1>Adatkezelés</h1>
+        </section>
       </div>
     </Layout>
   )

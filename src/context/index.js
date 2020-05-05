@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useReducer } from "react"
 import { inventory } from "../data/"
+import useLocalStorage from "../hooks/useLocalStorage"
 
 export const CartContext = React.createContext(null)
 
@@ -50,10 +51,13 @@ const cartReducer = (state, action) => {
 }
 
 export default ({ children }) => {
-  const [state, dispatch] = useReducer(cartReducer, { cart: [] })
+  const [cart, setCart] = useLocalStorage("winery-cart", { cart: [] })
+  const [state, dispatch] = useReducer(cartReducer, cart)
   const [products, setProducts] = useState(inventory)
 
-  useEffect(() => {}, [state, products])
+  useEffect(() => {
+    setCart(state)
+  }, [state, products, cart])
 
   const handleAddCart = action => {
     dispatch(action)

@@ -9,8 +9,6 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-ffmpeg`,
-    `gatsby-video`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

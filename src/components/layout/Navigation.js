@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import CartIndicator from "../cartIndicator"
 const Navigation = () => {
   return (
-    <nav className="fixed top-0 z-40 w-full">
+    <nav className="fixed top-0 z-40 w-full mt-10">
       <div className="container flex items-center justify-end px-4 mx-auto">
         <Link to="/" className="mr-auto text-4xl font-bold text-white">
           <svg
