@@ -4,10 +4,10 @@ import CartContext from "../context"
 // Layout
 import Layout from "../components/layout/Layout"
 // Components
+import Feature from "../components/feature"
 import Hero from "../components/Hero"
 import ProductList from "../components/ProductList"
 import Order from "../components/Order"
-
 import { Link } from "gatsby"
 const Index = () => {
   return (
@@ -44,6 +44,7 @@ const Index = () => {
           </video>
         </div>
         {/* <Hero /> */}
+        <Feature />
         <ProductList />
         <Order />
       </Layout>
