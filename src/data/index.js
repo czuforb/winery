@@ -7,7 +7,7 @@ export const inventory = [
     type: "félszáraz",
     amount: 0.75,
     price: 700,
-    id: cuid(),
+    id: 1,
   },
   {
     category: "Fehér",

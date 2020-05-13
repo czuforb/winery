@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"
 
 import { CartContext } from "../context"
-import CartProduct from "./cartProduct"
+import CartProduct from "./CartProduct"
 import { useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -40,25 +40,26 @@ const Cart = () => {
   `)
 
   return (
-    <div
-      id="cart"
-      className="flex flex-col items-start justify-center w-full p-2 my-8"
-    >
-      <h2>KOSÁR</h2>
-      <ul className="container flex flex-col items-center block p-2 mx-auto rounded-md min-h-320">
+    <div id="cart" className="w-full px-4 space-y-8 md:p-12">
+      <div className="w-full pb-1 mx-auto mb-6 border-b border-gray-800">
+        <h3 className="inline-block text-3xl font-bold font-display md:text-4xl">
+          Kosár
+        </h3>
+      </div>
+      <ul className="flex flex-col w-full space-y-2 rounded-md">
         {cart.length > 0 ? (
           cart.map((node, index) => (
             <CartProduct image={image} data={node} key={index} />
           ))
         ) : (
-          <li className="box-content flex items-center justify-center w-full h-full p-2 bg-gray-400 rounded-md">
+          <li className="box-border flex items-center justify-center w-full h-full p-4 bg-gray-400 rounded-md">
             <h2 className="text-xl font-bold text-gray-500">
               Üres a kosarad :(
             </h2>
           </li>
         )}
       </ul>
-      <div className="container flex-col p-4 mx-auto mt-auto bg-gray-300 rounded-md">
+      <div className="box-border p-4 bg-gray-300 rounded-md">
         <div className="pb-2 border-b border-gray-400 boorder-solid">
           <div className="flex flex-col justify-start md:flex-row ">
             <h2 className="text-xl font-bold text-gray-600">Szállítási díj:</h2>

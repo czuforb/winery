@@ -27,12 +27,12 @@ const CartQuantityHandler = ({ id, price }) => {
     }
   }, [cart, handleRemove, id])
   return (
-    <div className="flex items-end w-full mt-1 md:w-2/4">
+    <div className="flex items-end justify-center w-full md:w-2/4">
       <div className="w-1/2 h-12">
         <div className="relative flex flex-row h-10 mt-1 bg-transparent rounded-lg w-42">
           <button
             onClick={() => handleDecrease(id)}
-            className="w-10 h-full text-gray-600 bg-gray-300 rounded-l outline-none cursor-pointer  hover:text-gray-700 hover:bg-gray-400"
+            className="w-10 h-full text-gray-600 bg-gray-300 rounded-l outline-none cursor-pointer hover:text-gray-700 hover:bg-gray-400"
           >
             <span className="m-auto text-2xl font-bold">−</span>
           </button>

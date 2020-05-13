@@ -56,7 +56,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="w-full h-8 bg-green-800"></div>
     </footer>
   )
 }

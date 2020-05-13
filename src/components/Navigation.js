@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
-import CartIndicator from "../cartIndicator"
+import CartIndicator from "./cartIndicator"
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false)
 
@@ -19,14 +19,20 @@ const Navigation = () => {
     }
   }, [scrolled])
 
-  const navStyleScrolled = "fixed top-0 z-50 w-full bg-yellow-100 py-1"
-  const navStyleDefault = "fixed top-0 z-50 w-full mt-10"
+  const navStyleScrolled =
+    "fixed top-0 z-50 w-full bg-homok-100 bg-opacity-100 py-2 transform translate-y-0 shadow-md px-4"
+  const navStyleDefault =
+    "fixed top-0 z-50 w-full bg-homok-100 bg-opacity-0 py-2 translate-y-2 transform shadow-none px-4"
   return (
-    <nav className={scrolled ? navStyleScrolled : navStyleDefault}>
+    <nav
+      className={`${
+        scrolled ? navStyleScrolled : navStyleDefault
+      } transition-all duration-500 ease-in-out`}
+    >
       <div className="container flex items-center justify-end mx-auto">
-        <Link to="/" className="mr-auto text-4xl font-bold text-white">
+        <Link to="/" className="mt-1 mr-auto text-4xl font-bold text-white">
           <svg
-            className="w-8 h-8 text-white fill-current stroke-current"
+            className="w-12 h-12 text-white fill-current stroke-current"
             viewBox="0 0 150 165"
             xmlns="http://www.w3.org/2000/svg"
           >

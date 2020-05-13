@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import Button from "./Button"
 const VideoHero = () => {
   return (
     <div className="relative w-full h-screen">
@@ -14,12 +14,7 @@ const VideoHero = () => {
             voluptatem accusantium quibusdam possimus odit! Minima a
             necessitatibus voluptas fugit cumque!
           </h2>
-          <Link
-            to="/#products"
-            className="inline-block px-4 py-2 my-10 text-2xl font-bold bg-green-600 rounded-md"
-          >
-            Rendelés
-          </Link>
+          <Button to="/#products">Rendelés</Button>
         </div>
       </div>
       <video

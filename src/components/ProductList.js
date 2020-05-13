@@ -23,12 +23,14 @@ const ProductList = () => {
 
   return (
     <section id="products" className="w-full">
-      <div className="container flex flex-col px-4 mx-auto">
-        <div className="flex flex-col flex-wrap items-center py-24 mx-auto">
-          <h2 className="my-4 text-6xl font-bold font-display">Kínálatunk</h2>
+      <div className="container flex flex-col px-4 mx-auto ">
+        <div className="flex flex-col flex-wrap items-center py-12 mx-auto">
+          <h2 className="text-6xl font-bold leading-none align-bottom font-display">
+            Kínálatunk
+          </h2>
           <p className="p-4 text-xl text-center">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum
-            nulla dolor ducimus cum cupiditate unde minus.
+            Válogasson kedvére és rendeljen gyors házhoz szállítással
+            webáruházunkból!
           </p>
           <div className="flex flex-wrap justify-around">
             <Link
@@ -60,7 +62,7 @@ const ProductList = () => {
         <div>
           <article id="voros" className="flex flex-col w-full mx-auto my-8">
             <div className="w-full pb-1 mx-auto mb-6 text-gray-800 border-b border-gray-400">
-              <h3 className="inline-block text-3xl font-bold font-display md:text-4xl">
+              <h3 className="inline-block text-3xl font-bold font-display md:text-4xl text-zold-800">
                 Vörösborok
               </h3>
             </div>
@@ -77,8 +79,8 @@ const ProductList = () => {
             id="voros"
             className="flex flex-col w-full row-auto mx-auto my-8"
           >
-            <div className="pb-1 mx-auto mb-6 text-gray-800 border-b border-gray-400 md:w-full">
-              <h3 className="inline-block text-3xl font-bold md:text-4xl">
+            <div className="w-full pb-1 mx-auto mb-6 text-gray-800 border-b border-gray-400">
+              <h3 className="inline-block text-3xl font-bold font-display md:text-4xl">
                 Fehérborok
               </h3>
             </div>
@@ -92,8 +94,8 @@ const ProductList = () => {
           </article>
           {/* ROSE WINES */}
           <article id="voros" className="flex flex-col w-full mx-auto my-8">
-            <div className="pb-1 mx-auto mb-6 text-gray-800 border-b border-gray-400 md:w-full">
-              <h3 className="inline-block text-3xl font-bold md:text-4xl">
+            <div className="w-full pb-1 mx-auto mb-6 text-gray-800 border-b border-gray-400">
+              <h3 className="inline-block text-3xl font-bold font-display md:text-4xl">
                 Rozéborok
               </h3>
             </div>

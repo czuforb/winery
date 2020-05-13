@@ -30,5 +30,12 @@ module.exports = {
         id: "age-modal",
       },
     },
+    {
+      resolve: `gatsby-source-googlemaps-static`,
+      options: {
+        key: `AIzaSyBPHFwG1XsLVrSfbQlLy7cV_0bhnGLyTY0`,
+        center: `47.814643, 20.587045`,
+      },
+    },
   ],
 }

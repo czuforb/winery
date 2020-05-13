@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
+import Button from "./Button"
 const AboutUs = () => {
   const image = useStaticQuery(graphql`
     query ImageQuery {
@@ -15,15 +16,17 @@ const AboutUs = () => {
   `)
 
   return (
-    <section className="w-full py-20 bg-gray-100">
-      <div className="container grid grid-cols-8 mx-auto">
+    <section className="w-full md:py-20 bg-homok-300">
+      <div className="container grid grid-cols-2 mx-auto md:grid-cols-8">
         <Img
-          className="col-span-4 -mr-40"
+          className="col-span-2 md:-mr-40 md:col-span-4"
           fluid={image.file.childImageSharp.fluid}
         />
-        <div className="z-40 flex items-center justify-start col-span-4">
-          <div className="flex flex-col justify-start p-6 bg-gray-100">
-            <h1 className="text-6xl font-bold font-display">Borászatunkról</h1>
+        <div className="z-40 flex items-center justify-start col-span-2 md:col-span-4">
+          <div className="flex flex-col items-start justify-start p-6 px-4 bg-gray-100 shadow-xs">
+            <h1 className="p-0 mb-4 text-4xl font-bold align-baseline border-b border-gray-500 md:text-4xl lg:text-6xl font-display">
+              Borászatunkról
+            </h1>
             <p className="mb-6 text-xl">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Praesentium doloremque officiis inventore, adipisci, voluptas
@@ -33,12 +36,7 @@ const AboutUs = () => {
               doloribus itaque impedit, quis cum necessitatibus dolore veritatis
               magnam est!
             </p>
-            <Link
-              to="/#products"
-              className="inline px-4 py-2 text-xl font-bold text-green-100 bg-green-900 rounded group-hover:bg-green-700"
-            >
-              Rendelés
-            </Link>
+            <Button> Magunkról</Button>
           </div>
         </div>
       </div>

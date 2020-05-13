@@ -1,9 +1,10 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import { CartContext } from "../context"
-
+import { motion } from "framer-motion"
 const ProductItem = ({ node }) => {
+  const [hovered, setHover] = useState(false)
   const { handleAddCart } = useContext(CartContext)
 
   const action = {
@@ -39,7 +40,12 @@ const ProductItem = ({ node }) => {
   }
 
   return (
-    <div className="relative col-span-1 py-4 overflow-hidden rounded hover:shadow-xl">
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      onHoverStart={() => setHover(true)}
+      onHoverEnd={() => setHover(false)}
+      className="relative col-span-1 py-4 overflow-hidden rounded"
+    >
       <div className="relative flex items-center justify-center">
         <Img className="relative w-full" fluid={imageUrl(image, node.image)} />
       </div>
@@ -52,14 +58,17 @@ const ProductItem = ({ node }) => {
             {node.price}Ft/ {node.amount}l
           </p>
         </div> */}
-        <button
-          className="hidden px-4 py-2 mx-auto text-xl font-bold text-green-100 bg-green-900 rounded group-hover:block group-hover:bg-green-700"
-          onClick={() => handleAddCart(action)}
-        >
-          Kosárba rakom
-        </button>
+        {hovered && (
+          <motion.button
+            transition={{ ease: "easeOut", duration: 100 }}
+            className="absolute px-4 py-2 mx-auto text-xl font-bold text-green-100 bg-green-900 rounded group-hover:block group-hover:bg-green-700"
+            onClick={() => handleAddCart(action)}
+          >
+            Kosárba rakom
+          </motion.button>
+        )}
       </div>
-    </div>
+    </motion.div>
   )
 }
 
