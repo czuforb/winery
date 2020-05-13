@@ -23,4 +23,9 @@ exports.handler = function (event, context, callback) {
     })
     .then(msg => console.log(msg, "RESPOSZNVE")) // logs response data
     .catch(err => console.log(err, "ERR AMONNAN")) // logs any error
+
+  callback(null, {
+    statusCode: 200,
+    body: "mivan paraszt?",
+  })
 }
