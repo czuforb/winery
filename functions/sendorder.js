@@ -1,6 +1,6 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+// require("dotenv").config({
+//   path: `.env.${process.env.NODE_ENV}`,
+// })
 
 exports.handler = function (event, _context, callback) {
   const mailgun = require("mailgun.js")
