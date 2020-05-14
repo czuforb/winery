@@ -41,13 +41,16 @@ const Cart = () => {
   `)
 
   return (
-    <div id="cart" className="w-full px-4 space-y-8 md:p-12">
-      <div className="w-full pb-1 mx-auto mb-6 border-b border-gray-800">
+    <div
+      id="cart"
+      className="flex flex-col items-end flex-auto w-full h-full px-4 space-y-8 bg-gray-200 rounded-md md:p-12"
+    >
+      <div className="w-full pb-1 mx-auto mb-6 border-b border-gray-400">
         <h3 className="inline-block text-3xl font-bold font-display md:text-4xl">
           Kosár
         </h3>
       </div>
-      <ul className="flex flex-col w-full space-y-2 rounded-md">
+      <ul className="flex flex-col flex-1 flex-grow w-full h-full space-y-2 rounded-md">
         {cart.length > 0 ? (
           cart.map((node, index) => (
             <CartProduct image={image} data={node} key={index} />
@@ -60,7 +63,7 @@ const Cart = () => {
           </li>
         )}
       </ul>
-      <div className="box-border h-full p-4 bg-gray-200 rounded-md">
+      <div className="box-border flex flex-col justify-end flex-shrink p-4 bg-gray-400 rounded-md">
         <div className="pb-2 border-b border-gray-400 boorder-solid">
           <div className="flex flex-col justify-start md:flex-row ">
             <h2 className="text-xl font-bold text-gray-700">Szállítási díj:</h2>
