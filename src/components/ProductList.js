@@ -1,25 +1,11 @@
 import React, { useContext } from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 import { CartContext } from "../context"
-import ProductItem from "./ProductItem"
-import BackgroundImage from "gatsby-background-image"
-
+import ProductListing from "./ProductListing"
 const ProductList = () => {
   const {
     products: [products],
   } = useContext(CartContext)
-
-  const data = useStaticQuery(graphql`
-    query redWineQuery {
-      file(relativePath: { eq: "redwine.png" }) {
-        childImageSharp {
-          fluid(quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
 
   return (
     <section id="products" className="w-full">
@@ -60,53 +46,23 @@ const ProductList = () => {
         {/* THE PRODUCT LIST STARTS HERE */}
 
         <div>
-          <article id="voros" className="flex flex-col w-full mx-auto my-8">
-            <div className="w-full pb-1 mx-auto mb-6 text-gray-800 border-b border-gray-400">
-              <h3 className="inline-block text-3xl font-bold font-display md:text-4xl text-zold-800">
-                Vörösborok
-              </h3>
-            </div>
-            <div className="grid w-full grid-cols-1 gap-2 sm:gap-3 sm:grid-cols-2 md:gap-4 md:grid-cols-3 lg:grid-cols-4">
-              {products
-                .filter(element => element.category === "Vörös")
-                .map(node => (
-                  <ProductItem key={node.id} node={node} />
-                ))}
-            </div>
-          </article>
+          <ProductListing
+            category="Vörös"
+            title="Vörösborok"
+            products={products}
+          />
           {/* WHITE WINE */}
-          <article
-            id="voros"
-            className="flex flex-col w-full row-auto mx-auto my-8"
-          >
-            <div className="w-full pb-1 mx-auto mb-6 text-gray-800 border-b border-gray-400">
-              <h3 className="inline-block text-3xl font-bold font-display md:text-4xl">
-                Fehérborok
-              </h3>
-            </div>
-            <div className="grid w-full grid-cols-1 gap-2 sm:gap-3 sm:grid-cols-2 md:gap-4 md:grid-cols-3 lg:grid-cols-4">
-              {products
-                .filter(element => element.category === "Fehér")
-                .map(node => (
-                  <ProductItem key={node.id} node={node} />
-                ))}
-            </div>
-          </article>
+          <ProductListing
+            category="Fehér"
+            title="Fehérborok"
+            products={products}
+          />
           {/* ROSE WINES */}
-          <article id="voros" className="flex flex-col w-full mx-auto my-8">
-            <div className="w-full pb-1 mx-auto mb-6 text-gray-800 border-b border-gray-400">
-              <h3 className="inline-block text-3xl font-bold font-display md:text-4xl">
-                Rozéborok
-              </h3>
-            </div>
-            <div className="grid w-full grid-cols-1 gap-2 sm:gap-3 sm:grid-cols-2 md:gap-4 md:grid-cols-3 lg:grid-cols-4">
-              {products
-                .filter(element => element.category === "Rozé")
-                .map(node => (
-                  <ProductItem key={node.id} node={node} />
-                ))}
-            </div>
-          </article>
+          <ProductListing
+            category="Rozé"
+            title="Rozéborok"
+            products={products}
+          />
         </div>
       </div>
     </section>

@@ -21,7 +21,10 @@ const Checkout = () => {
             method: "post",
             body: JSON.stringify({ cart, values }),
           })
-          console.log({ cart, values })
+            .then(response => response.json())
+            .then(data => {
+              console.log("Success:", data)
+            })
         }}
       >
         {({ values, handleChange, handleSubmit }) => (

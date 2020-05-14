@@ -3,7 +3,7 @@ import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import { CartContext } from "../context"
 import { motion } from "framer-motion"
-const ProductItem = ({ node }) => {
+const ProductItem = ({ node, index }) => {
   const [hovered, setHover] = useState(false)
   const { handleAddCart } = useContext(CartContext)
 
@@ -39,11 +39,30 @@ const ProductItem = ({ node }) => {
     return data.node.childImageSharp.fluid
   }
 
+  const item = {
+    hidden: {
+      opacity: 0,
+      y: 200,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        type: "spring",
+        damping: 100,
+        mass: 5,
+      },
+    },
+  }
+
+  const shadow =
+    "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)"
   return (
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      onHoverStart={() => setHover(true)}
-      onHoverEnd={() => setHover(false)}
+    <motion.li
+      onHoverStart={e => setHover(true)}
+      onHoverEnd={e => setHover(false)}
+      variants={item}
       className="relative col-span-1 py-4 overflow-hidden rounded"
     >
       <div className="relative flex items-center justify-center">
@@ -53,14 +72,10 @@ const ProductItem = ({ node }) => {
         <h2 className="text-2xl font-extrabold text-gray-900 font-display">
           {node.name} 2019
         </h2>
-        {/* <div className="flex flex-col items-center w-full my-1">
-          <p className="absolute top-0 right-0 p-2 m-2 text-base font-bold text-gray-900 bg-gray-200">
-            {node.price}Ft/ {node.amount}l
-          </p>
-        </div> */}
         {hovered && (
           <motion.button
-            transition={{ ease: "easeOut", duration: 100 }}
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: -100, scale: 2 }}
             className="absolute px-4 py-2 mx-auto text-xl font-bold text-green-100 bg-green-900 rounded group-hover:block group-hover:bg-green-700"
             onClick={() => handleAddCart(action)}
           >
@@ -68,7 +83,7 @@ const ProductItem = ({ node }) => {
           </motion.button>
         )}
       </div>
-    </motion.div>
+    </motion.li>
   )
 }
 
