@@ -98,12 +98,25 @@ const ProductItem = ({ node, index }) => {
     hover: {
       boxShadow: shadow,
     },
+    hidden: {
+      opacity: 0,
+      y: 200,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        type: "spring",
+        damping: 100,
+        mass: 5,
+      },
+    },
   }
   return (
     <motion.li
-      initial="rest"
+      rest="rest"
       whileHover="hover"
-      animate="rest"
       variants={cardMotion}
       className="relative col-span-1 py-4 overflow-hidden rounded"
     >
@@ -117,9 +130,13 @@ const ProductItem = ({ node, index }) => {
         >
           {node.name} 2019
         </motion.h2>
-        <motion.div className="absolute mx-auto" variants={buttonMotion}>
+        <motion.div
+          initial="rest"
+          className="absolute mx-auto"
+          variants={buttonMotion}
+        >
           <motion.button
-            className="p-4 text-xl font-bold bg-homok-300 text-homok-900"
+            className="p-4 text-xl font-bold focus:outline-none bg-homok-300 text-homok-900"
             whileHover={{ scale: 1.1, boxShadow: shadow }}
             whileTap={{ scale: 0.9, boxShadow: 0 }}
             onClick={() => handleAddCart(action)}

@@ -29,7 +29,6 @@ const ProductListing = ({ category, title, products }) => {
       {({ isVisible }) => {
         if (isVisible) {
           controls.start("visible")
-          console.log(products)
         }
         return (
           <article id="voros" className="flex flex-col w-full mx-auto my-8">
