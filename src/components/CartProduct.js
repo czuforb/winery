@@ -1,8 +1,9 @@
 import React from "react"
 import GatsbyImage from "gatsby-image"
 import CartQuantityHandler from "./CartQuantityHandler"
+import { motion, AnimatePresence } from "framer-motion"
 
-const CartProduct = ({ data, image }) => {
+const CartProduct = ({ data, image, key }) => {
   const imgSrc = (image, type) => {
     const { edges } = image.allFile
     switch (type) {
@@ -18,7 +19,10 @@ const CartProduct = ({ data, image }) => {
   }
 
   return (
-    <li className="flex flex-col items-center w-full p-2 bg-white rounded-md shadow-sm md:flex-row">
+    <li
+      key={key}
+      className="flex flex-col items-center w-full p-2 bg-white rounded-md shadow-sm md:flex-row"
+    >
       <div className="flex justify-start w-full md:w-2/4">
         <GatsbyImage
           fluid={imgSrc(image, data.category)}

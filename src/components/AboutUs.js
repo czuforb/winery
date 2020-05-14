@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 import Button from "./Button"
+import { motion, useViewportScroll, useTransform } from "framer-motion"
 const AboutUs = () => {
   const image = useStaticQuery(graphql`
     query ImageQuery {
@@ -15,13 +16,18 @@ const AboutUs = () => {
     }
   `)
 
+  const { scrollYProgress } = useViewportScroll()
+  const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1.4])
+
   return (
     <section className="w-full md:py-20 bg-homok-300">
       <div className="container grid grid-cols-2 mx-auto md:grid-cols-8">
-        <Img
-          className="col-span-2 md:-mr-40 md:col-span-4"
-          fluid={image.file.childImageSharp.fluid}
-        />
+        <motion.div
+          className="col-span-2 overflow-visible md:-mr-40 md:col-span-4"
+          style={{ scale }}
+        >
+          <Img fluid={image.file.childImageSharp.fluid} />
+        </motion.div>
         <div className="z-40 flex items-center justify-start col-span-2 md:col-span-4">
           <div className="flex flex-col items-start justify-start p-6 px-4 bg-gray-100 shadow-xs">
             <h1 className="p-0 mb-4 text-4xl font-bold align-baseline border-b border-gray-500 md:text-4xl lg:text-6xl font-display">

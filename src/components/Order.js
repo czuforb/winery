@@ -4,9 +4,9 @@ import Checkout from "./Checkout"
 
 const Order = () => {
   return (
-    <section className="w-full py-12 bg-homok-300">
+    <section className="w-full py-12 bg-homok-200">
       <div className="container grid grid-cols-8 mx-auto md:grid-rows-1">
-        <div className="col-span-8 row-start-2 bg-gray-500 rounded-md md:row-start-1 md:col-span-3">
+        <div className="col-span-8 row-start-2 bg-gray-100 rounded-md md:row-start-1 md:col-span-3">
           <Checkout />
         </div>
         <div className="col-span-8 md:row-start-1 md:col-span-5">

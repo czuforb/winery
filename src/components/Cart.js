@@ -4,6 +4,7 @@ import { CartContext } from "../context"
 import CartProduct from "./CartProduct"
 import { useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { AnimatePresence } from "framer-motion"
 
 const Cart = () => {
   const [total, setTotal] = useState(0)
@@ -59,21 +60,21 @@ const Cart = () => {
           </li>
         )}
       </ul>
-      <div className="box-border p-4 bg-gray-300 rounded-md">
+      <div className="box-border h-full p-4 bg-gray-200 rounded-md">
         <div className="pb-2 border-b border-gray-400 boorder-solid">
           <div className="flex flex-col justify-start md:flex-row ">
-            <h2 className="text-xl font-bold text-gray-600">Szállítási díj:</h2>
+            <h2 className="text-xl font-bold text-gray-700">Szállítási díj:</h2>
             {freeShipping ? (
-              <p className="text-xl font-bold text-gray-600 md:ml-auto">
+              <p className="text-xl font-bold text-gray-700 md:ml-auto">
                 1000 Ft
               </p>
             ) : (
-              <p className="text-xl font-bold text-green-600 md:ml-auto">
+              <p className="text-xl font-bold text-green-800 md:ml-auto">
                 INGYENES!
               </p>
             )}
           </div>
-          <p className="mt-1 text-base leading-relaxed text-gray-600">
+          <p className="mt-1 text-base leading-relaxed text-gray-700">
             Mezőkövesd területén belül, valamint 5000 Ft-ot meghaladó vásárlás
             esetén ingyenes szállítást vállalunk.
           </p>
