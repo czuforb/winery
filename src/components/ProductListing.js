@@ -3,6 +3,8 @@ import VisibilitySensor from "react-visibility-sensor"
 import { motion, useAnimation } from "framer-motion"
 import ProductItem from "./ProductItem"
 
+import useDimensions from "react-use-dimensions"
+
 const ProductListing = ({ category, title, products }) => {
   const list = products.filter(element => element.category === category)
 
@@ -24,6 +26,8 @@ const ProductListing = ({ category, title, products }) => {
 
   const controls = useAnimation()
 
+  const [ref, { x, y, width }] = useDimensions()
+
   return (
     <VisibilitySensor partialVisibility={true}>
       {({ isVisible }) => {
@@ -31,7 +35,11 @@ const ProductListing = ({ category, title, products }) => {
           controls.start("visible")
         }
         return (
-          <article id="voros" className="flex flex-col w-full mx-auto my-8">
+          <article
+            ref={ref}
+            id="voros"
+            className="flex flex-col w-full mx-auto my-8"
+          >
             <div className="w-full pb-1 mx-auto mb-6 text-gray-800 border-b border-gray-400">
               <h3 className="inline-block text-3xl font-bold font-display md:text-4xl text-zold-800">
                 {title}
@@ -45,7 +53,12 @@ const ProductListing = ({ category, title, products }) => {
               className="grid w-full grid-cols-1 gap-2 sm:gap-3 sm:grid-cols-2 md:gap-4 md:grid-cols-3 lg:grid-cols-4"
             >
               {list.map((node, i) => (
-                <ProductItem key={node.id} index={i} node={node} />
+                <ProductItem
+                  width={width}
+                  key={node.id}
+                  index={i}
+                  node={node}
+                />
               ))}
             </motion.ul>
           </article>

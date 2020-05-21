@@ -2,13 +2,14 @@ import React, { useContext } from "react"
 import { Link } from "gatsby"
 import { CartContext } from "../context"
 import ProductListing from "./ProductListing"
+
 const ProductList = () => {
   const {
     products: [products],
   } = useContext(CartContext)
 
   return (
-    <section id="products" className="w-full">
+    <section id="products" className="w-full bg-gray-200">
       <div className="container flex flex-col px-4 mx-auto ">
         <div className="flex flex-col flex-wrap items-center py-12 mx-auto">
           <h2 className="text-6xl font-bold leading-none align-bottom font-display">

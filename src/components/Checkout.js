@@ -122,7 +122,7 @@ const Checkout = () => {
             </div>
             <button
               type="submit"
-              className="w-full px-4 py-2 mx-auto mt-auto text-xl font-bold text-green-100 bg-green-900 rounded"
+              className="w-full px-4 py-2 mx-auto mt-auto text-xl text-gray-100 bg-gray-900 rounded"
             >
               Megrendelem
             </button>

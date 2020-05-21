@@ -4,7 +4,7 @@ import { CartContext } from "../context"
 import CartProduct from "./CartProduct"
 import { useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 const Cart = () => {
   const [total, setTotal] = useState(0)
@@ -43,20 +43,23 @@ const Cart = () => {
   return (
     <div
       id="cart"
-      className="flex flex-col items-end flex-auto w-full h-full px-4 space-y-8 bg-gray-200 rounded-md md:p-12"
+      className="flex flex-col items-center flex-auto w-full h-full px-4 space-y-8 bg-gray-200 rounded-md md:p-12"
     >
-      <div className="w-full pb-1 mx-auto mb-6 border-b border-gray-400">
+      <div className="w-full pb-1 mx-auto border-b border-gray-400">
         <h3 className="inline-block text-3xl font-bold font-display md:text-4xl">
           Kosár
         </h3>
       </div>
-      <ul className="flex flex-col flex-1 flex-grow w-full h-full space-y-2 rounded-md">
+      <ul className="flex flex-col w-full h-full rounded-md">
         {cart.length > 0 ? (
           cart.map((node, index) => (
             <CartProduct image={image} data={node} key={index} />
           ))
         ) : (
-          <li className="box-border flex items-center justify-center w-full h-full p-4 bg-gray-400 rounded-md">
+          <li
+            exit={{ opacity: 0 }}
+            className="box-border flex items-center justify-center w-full h-full p-4 bg-gray-400 rounded-md"
+          >
             <h2 className="text-xl font-bold text-gray-500">
               Üres a kosarad :(
             </h2>
@@ -66,7 +69,7 @@ const Cart = () => {
       <div className="box-border flex flex-col justify-end flex-shrink p-4 bg-gray-400 rounded-md">
         <div className="pb-2 border-b border-gray-400 boorder-solid">
           <div className="flex flex-col justify-start md:flex-row ">
-            <h2 className="text-xl font-bold text-gray-700">Szállítási díj:</h2>
+            <h2 className="text-xl font-bold text-gray-800">Szállítási díj:</h2>
             {freeShipping ? (
               <p className="text-xl font-bold text-gray-700 md:ml-auto">
                 1000 Ft
@@ -77,7 +80,7 @@ const Cart = () => {
               </p>
             )}
           </div>
-          <p className="mt-1 text-base leading-relaxed text-gray-700">
+          <p className="mt-1 text-base leading-relaxed text-gray-800">
             Mezőkövesd területén belül, valamint 5000 Ft-ot meghaladó vásárlás
             esetén ingyenes szállítást vállalunk.
           </p>

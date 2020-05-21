@@ -2,11 +2,10 @@ import React, { useContext, useState } from "react"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import { CartContext } from "../context"
-import { motion } from "framer-motion"
-const ProductItem = ({ node, index }) => {
-  const [hovered, setHover] = useState(false)
-  const { handleAddCart } = useContext(CartContext)
 
+import { motion } from "framer-motion"
+const ProductItem = ({ node, index, width }) => {
+  const { handleAddCart } = useContext(CartContext)
   const action = {
     type: "ADD",
     playload: {
@@ -39,61 +38,9 @@ const ProductItem = ({ node, index }) => {
     return data.node.childImageSharp.fluid
   }
 
-  const item = {
-    hidden: {
-      opacity: 0,
-      y: 200,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        type: "spring",
-        damping: 100,
-        mass: 5,
-      },
-    },
-  }
-
   const shadow =
     "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)"
 
-  const buttonMotion = {
-    rest: {
-      opacity: 0,
-      x: -100,
-      transition: {
-        duration: 0.6,
-      },
-    },
-    hover: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.6,
-        delay: 0.15,
-      },
-    },
-  }
-
-  const transition = {
-    duration: 0.7,
-    type: "tween",
-    ease: "easeOut",
-  }
-  const textMotion = {
-    rest: {
-      x: 0,
-      opacity: 1,
-      transition,
-    },
-    hover: {
-      x: 200,
-      opacity: 0,
-      transition,
-    },
-  }
   const cardMotion = {
     hover: {
       boxShadow: shadow,
@@ -113,37 +60,37 @@ const ProductItem = ({ node, index }) => {
       },
     },
   }
+
   return (
     <motion.li
-      rest="rest"
+      whileTap="tap"
       whileHover="hover"
       variants={cardMotion}
-      className="relative col-span-1 py-4 overflow-hidden rounded"
+      className="relative col-span-1 overflow-hidden bg-white"
     >
-      <div className="relative flex items-center justify-center">
-        <Img className="relative w-full" fluid={imageUrl(image, node.image)} />
-      </div>
-      <div className="flex flex-col items-center justify-center w-full p-6 group">
-        <motion.h2
-          variants={textMotion}
-          className="text-2xl font-extrabold text-gray-900 font-display"
-        >
+      <div className="p-4">
+        <h2 className="pb-2 mb-2 text-2xl font-semibold tracking-wider border-b border-gray-300 font-display">
           {node.name} 2019
-        </motion.h2>
-        <motion.div
-          initial="rest"
-          className="absolute mx-auto"
-          variants={buttonMotion}
+          <span className="block text-lg font-light tracking-tight text-gray-800 font-body">
+            200 Ft
+          </span>
+        </h2>
+        <div className="relative flex items-center justify-center">
+          <Img
+            className="relative w-full"
+            fluid={imageUrl(image, node.image)}
+          />
+        </div>
+      </div>
+      <div className="flex flex-col items-center justify-center w-full">
+        <motion.button
+          className="px-8 py-4 m-4 tracking-wider text-gray-100 bg-gray-900 "
+          onClick={() => handleAddCart(action)}
         >
-          <motion.button
-            className="p-4 text-xl font-bold focus:outline-none bg-homok-300 text-homok-900"
-            whileHover={{ scale: 1.1, boxShadow: shadow }}
-            whileTap={{ scale: 0.9, boxShadow: 0 }}
-            onClick={() => handleAddCart(action)}
-          >
+          <span className="inline-block" whileHover={{ scale: 1.05 }}>
             Kosárba rakom
-          </motion.button>
-        </motion.div>
+          </span>
+        </motion.button>
       </div>
     </motion.li>
   )

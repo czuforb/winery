@@ -19,25 +19,22 @@ const CartProduct = ({ data, image, key }) => {
   }
 
   return (
-    <li
-      key={key}
-      className="flex flex-col items-center w-full p-2 bg-white rounded-md shadow-sm md:flex-row"
-    >
+    <li className="flex flex-col items-center w-full p-2 bg-white rounded-md shadow-sm md:flex-row">
       <div className="flex justify-start w-full md:w-2/4">
         <GatsbyImage
           fluid={imgSrc(image, data.category)}
           className="w-12 h-12"
         />
         <div className="flex flex-col items-start justify-center ml-2">
-          <h2 className="text-xl font-bold text-gray-900">
+          <h2 className="text-xl font-bold tracking-wide text-gray-900">
             {data.name} {data.category}
           </h2>
           {data.amount === 0.75 ? (
-            <p className="font-bold text-gray-700 text-md">
+            <p className="text-gray-700 text-md">
               {data.quantity} darab 0.75 palack
             </p>
           ) : (
-            <p className="font-bold text-gray-700 text-md">
+            <p className="text-gray-700 text-md">
               {data.amount * data.quantity} liter
             </p>
           )}

@@ -4,18 +4,22 @@ import { motion } from "framer-motion"
 const VideoHero = () => {
   return (
     <div className="relative w-full h-screen">
-      <div className="absolute inset-0 z-10 flex items-center justify-center">
-        <div className="absolute inset-0 bg-gray-900 opacity-50"></div>
-        <div className="z-20 w-full text-center text-white md:w-1/3">
-          <h1 className="text-5xl font-extrabold leading-tight font-display md:text-6xl">
-            Termelői bor
-          </h1>
-          <h2 className="text-xl leading-relaxed font-body md:text-2xl">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor
-            voluptatem accusantium quibusdam possimus odit! Minima a
-            necessitatibus voluptas fugit cumque!
-          </h2>
-          <Button to="/#products">Rendelés</Button>
+      <div className="absolute inset-0 z-10 flex items-center justify-start">
+        <div className="absolute inset-0 bg-gray-900 bg-opacity-25"></div>
+
+        {/* STUFFF  */}
+
+        <div className="container z-20 mx-auto ">
+          <div className="w-2/3">
+            <h1 className="text-6xl font-extrabold leading-tight text-white font-display md:text-6xl">
+              Bükkaljai Termelői Bor
+            </h1>
+            <h2 className="w-2/3 text-xl leading-loose text-white font-body md:text-2xl">
+              Minősített bükkaljai borok, családi pincészetből. Borcsomagok akár
+              ingyenes kiszállítással!
+            </h2>
+            <Button to="/#products">Rendelés</Button>
+          </div>
         </div>
       </div>
       <video

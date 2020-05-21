@@ -13,8 +13,8 @@ module.exports = {
         backdrop: "hsla(120,100%,25%,0.6)",
       },
       fontFamily: {
-        display: ["Amiri"],
-        body: ["Open Sans"],
+        display: ["Playfair Display, serif"],
+        body: ["Roboto, sans-serif"],
       },
       colors: {
         lgray: {
