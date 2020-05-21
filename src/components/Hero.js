@@ -22,12 +22,12 @@ const Hero = () => {
       fluid={data.file.childImageSharp.fluid}
       backgroundColor={`#040e18`}
     >
-      <div className="container flex items-center justify-start h-screen mx-auto ">
-        <div className="w-2/3 text-gray-100 ">
-          <h1 className="text-5xl font-bold tracking-wide md:text-6xl font-display">
+      <div className="container flex items-end h-screen p-4 mx-auto md:items-center md:justify-start">
+        <div className="w-full text-gray-100 md:w-2/3 ">
+          <h1 className="text-4xl font-bold tracking-wide md:text-6xl font-display">
             Bükkaljai Termelői Bor
           </h1>
-          <h2 className="w-2/3 text-xl leading-loose md:text-2xl">
+          <h2 className="w-full text-xl md:leading-loose md:w-2/3 md:text-2xl">
             Minősített bükkaljai borok, családi pincészetből. Borcsomagok akár
             ingyenes kiszállítással!
           </h2>

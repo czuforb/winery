@@ -8,7 +8,6 @@ import useDimensions from "react-use-dimensions"
 const ProductListing = ({ category, title, products }) => {
   const list = products.filter(element => element.category === category)
 
-  console.log(list)
   // Animation settings
   const container = {
     hidden: {

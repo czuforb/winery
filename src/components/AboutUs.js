@@ -23,7 +23,7 @@ const AboutUs = () => {
     <section className="w-full bg-gray-300 md:py-20">
       <div className="container grid grid-cols-2 mx-auto md:grid-cols-8">
         <motion.div
-          className="col-span-2 overflow-hidden md:-mr-40 md:col-span-4"
+          className="hidden col-span-2 overflow-hidden md:block md:-mr-40 md:col-span-4"
           style={{ scale }}
         >
           <Img fluid={image.file.childImageSharp.fluid} />
@@ -42,20 +42,8 @@ const AboutUs = () => {
               doloribus itaque impedit, quis cum necessitatibus dolore veritatis
               magnam est!
             </p>
-            <button className="pb-0 border-b border-gray-900 text-md">
+            <button className="pb-0 ml-auto text-lg border-gray-900 hover:border-b">
               Magunkról
-              <svg
-                className="inline-block ml-2"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="16"
-                height="16"
-              >
-                <path
-                  class="heroicon-ui"
-                  d="M18.59 13H3a1 1 0 0 1 0-2h15.59l-5.3-5.3a1 1 0 1 1 1.42-1.4l7 7a1 1 0 0 1 0 1.4l-7 7a1 1 0 0 1-1.42-1.4l5.3-5.3z"
-                />
-              </svg>
             </button>
           </div>
         </div>

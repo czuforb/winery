@@ -9,17 +9,17 @@ const ProductList = () => {
   } = useContext(CartContext)
 
   return (
-    <section id="products" className="w-full bg-gray-200">
-      <div className="container flex flex-col px-4 mx-auto ">
-        <div className="flex flex-col flex-wrap items-center py-12 mx-auto">
-          <h2 className="text-6xl font-bold leading-none align-bottom font-display">
+    <section id="products" className="w-full p-4 bg-gray-200">
+      <div className="container flex flex-col mx-auto ">
+        <div className="flex flex-col flex-wrap items-center py-12 mx-auto space-y-4">
+          <h2 className="text-4xl font-bold leading-none align-bottom md:text-6xl font-display">
             Kínálatunk
           </h2>
-          <p className="p-4 text-xl text-center">
+          <p className="text-xl text-center">
             Válogasson kedvére és rendeljen gyors házhoz szállítással
             webáruházunkból!
           </p>
-          <div className="flex flex-wrap justify-around">
+          {/* <div className="flex flex-wrap justify-around">
             <Link
               to="/#voros"
               className="items-baseline px-2 py-1 m-2 text-lg font-bold text-red-900 bg-gray-100 rounded-md shadow-sm hover:bg-green-900"
@@ -41,7 +41,7 @@ const ProductList = () => {
               <span className="inline-block p-2 mx-1 bg-red-300 rounded-full"></span>
               Rozéborok
             </Link>
-          </div>
+          </div> */}
         </div>
 
         {/* THE PRODUCT LIST STARTS HERE */}

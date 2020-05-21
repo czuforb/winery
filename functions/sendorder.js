@@ -28,6 +28,7 @@ exports.handler = function (event, context, callback) {
     statusCode: 200,
     body: JSON.stringify({
       message: "Charge successfully created!",
+      succes: true,
     }),
   }
 }

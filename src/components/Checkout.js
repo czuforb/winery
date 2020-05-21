@@ -2,21 +2,23 @@ import React, { useContext } from "react"
 import { Formik, Form, Field } from "formik"
 import { CartContext } from "../context"
 import MyTextInput from "../components/MyTextInput"
+import { navigate } from "gatsby"
+import { motion } from "framer-motion"
 
 const Checkout = () => {
   const { cart } = useContext(CartContext)
 
   return (
-    <div className="flex flex-col col-span-2 px-4 md:p-12">
+    <div className="flex flex-col col-span-2 px-4 bg-gray-100 rounded md:p-12">
       <Formik
         initialValues={{
-          name: "Bence Czufor",
-          phone: "06 30 5537883",
-          email: "hi@bence.cz",
-          city: "Mezőkövesd",
+          name: "",
+          phone: "",
+          email: "",
+          city: "",
           address: "",
         }}
-        onSubmit={(values, actions) => {
+        onSubmit={(values, { setSubmitting }) => {
           fetch("/api/sendorder", {
             method: "post",
             body: JSON.stringify({ cart, values }),
@@ -25,9 +27,13 @@ const Checkout = () => {
             .then(data => {
               console.log("Success:", data)
             })
+
+          setTimeout(() => {
+            setSubmitting(false)
+          }, 900)
         }}
       >
-        {({ values, handleChange, handleSubmit }) => (
+        {({ values, handleChange, handleSubmit, isSubmitting }) => (
           <Form
             onSubmit={handleSubmit}
             className="flex flex-col justify-between"
@@ -120,12 +126,27 @@ const Checkout = () => {
                 />
               </div>
             </div>
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              disabled={isSubmitting}
               type="submit"
-              className="w-full px-4 py-2 mx-auto mt-auto text-xl text-gray-100 bg-gray-900 rounded"
+              className="w-full px-4 py-2 text-xl text-gray-100 bg-gray-900 rounded disabled:bg-red-600"
             >
               Megrendelem
-            </button>
+              <motion.span className="mx-2">
+                <svg
+                  className="inline-block w-6 h-6"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </motion.span>
+            </motion.button>
           </Form>
         )}
       </Formik>

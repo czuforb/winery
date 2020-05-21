@@ -43,14 +43,14 @@ const Cart = () => {
   return (
     <div
       id="cart"
-      className="flex flex-col items-center flex-auto w-full h-full px-4 space-y-8 bg-gray-200 rounded-md md:p-12"
+      className="flex flex-col items-center flex-auto w-full h-full px-4 space-y-8 bg-gray-100 rounded md:p-12"
     >
       <div className="w-full pb-1 mx-auto border-b border-gray-400">
         <h3 className="inline-block text-3xl font-bold font-display md:text-4xl">
           Kosár
         </h3>
       </div>
-      <ul className="flex flex-col w-full h-full rounded-md">
+      <ul className="flex flex-col w-full h-full overflow-hidden rounded">
         {cart.length > 0 ? (
           cart.map((node, index) => (
             <CartProduct image={image} data={node} key={index} />

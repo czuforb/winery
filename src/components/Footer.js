@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col justify-start w-full text-green-100 bg-green-900 border-t-8 border-green-700">
+    <footer className="flex flex-col justify-start w-full py-12 text-green-100 bg-green-900 border-t-8 border-green-700">
       <div className="container flex flex-col px-4 mx-auto md:flex-row">
         <div className="flex flex-col md:w-1/2 md:flex-row md:justify-around">
           <div className="w-auto w-full my-4 md:w-1/2 md:mx-auto">
@@ -44,7 +44,9 @@ const Footer = () => {
               Termelte és palackozta
             </h3>
             <div className="not-italic">
-              <h2 className="text-2xl font-bold">Varga Zoltán</h2>
+              <h2 className="text-2xl font-bold tracking-wider font-display">
+                Varga Zoltán
+              </h2>
               <address className="ml-1 not-italic">
                 Mezőkövesd 3400 <br />
                 Berzsenyi Dániel utca 13.
